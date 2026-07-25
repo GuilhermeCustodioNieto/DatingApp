@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Aceita sair comigo?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonte Pixel -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ========================= -->
+    <!-- Background -->
+    <!-- ========================= -->
+
+    <div class="background">
+      <div class="cloud cloud1"></div>
+      <div class="cloud cloud2"></div>
+      <div class="cloud cloud3"></div>
+      <div class="cloud cloud4"></div>
+
+      <div class="stars"></div>
+
+      <div id="floating-hearts"></div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Fake Browser -->
+    <!-- ========================= -->
+
+    <header class="browser">
+      <div class="browser-bar">
+        <div class="favicon">❤</div>
+
+        <span> aceitasaircomigo.com </span>
+
+        <div class="actions">
+          <button>↻</button>
+
+          <button>⋮</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========================= -->
+    <!-- Main -->
+    <!-- ========================= -->
+
+    <main>
+      <section class="window">
+        <!-- Window Header -->
+
+        <div class="window-header">
+          <span> Convite Especial </span>
+
+          <div class="window-buttons">
+            <button>-</button>
+
+            <button>□</button>
+
+            <button>✕</button>
+          </div>
+        </div>
+
+        <!-- Conteúdo -->
+
+        <div class="window-content">
+          <h1>
+            Aceita sair<br />
+
+            comigo?
+          </h1>
+
+          <!-- Bunny -->
+
+          <div class="bunny-container">
+            <img
+              src="./assets/coelhos.png"
+              alt="Coelhos    "
+              class="bunny-img"
+            />
+          </div>
+
+          <!-- Texto -->
+
+          <div class="message">
+            Quero te levar para viver momentos incríveis juntos!<span>
+              💕
+            </span>
+          </div>
+
+          <!-- Botões -->
+
+          <div class="buttons">
+            <button id="yesButton" class="yes">Sim ♡</button>
+
+            <button id="noButton" class="no">Não ♡</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================= -->
+    <!-- Footer -->
+    <!-- ========================= -->
+
+    <footer>
+      <div class="mail">
+        <img src="./assets/mail.png" alt="Ícone de e-mail" />
+      </div>
+
+      <p>Feito com carinho para você</p>
+    </footer>
+
+    <!-- Popup -->
+
+    <div id="successPopup" class="popup hidden">
+      <div class="popup-content">
+        <h2>Você aceitou!</h2>
+
+        <p>Agora só falta marcar nosso encontro.</p>
+
+        <button id="closePopup">Fechar</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

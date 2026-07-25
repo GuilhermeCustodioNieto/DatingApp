@@ -1,0 +1,689 @@
+/* =======================================================
+   RESET
+======================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  font-family: "Pixelify Sans", sans-serif;
+
+  background: linear-gradient(180deg, #ffd9e8 0%, #ffc8dd 40%, #ffd7e8 100%);
+
+  color: #e7649d;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =======================================================
+   BACKGROUND
+======================================================= */
+
+.background {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  z-index: -1;
+}
+
+/* =======================================================
+   ESTRELAS
+======================================================= */
+
+.stars {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(#ffffff 2px, transparent 2px),
+    radial-gradient(#ffd3eb 1px, transparent 1px);
+
+  background-size:
+    140px 140px,
+    80px 80px;
+
+  opacity: 0.55;
+
+  animation: twinkle 5s linear infinite;
+}
+
+/* =======================================================
+   NUVENS
+======================================================= */
+
+.cloud {
+  position: absolute;
+
+  width: 220px;
+  height: 80px;
+
+  background: white;
+
+  border-radius: 100px;
+
+  filter: blur(2px);
+
+  opacity: 0.55;
+}
+
+.cloud::before {
+  content: "";
+
+  position: absolute;
+
+  width: 90px;
+  height: 90px;
+
+  left: 20px;
+  top: -35px;
+
+  border-radius: 50%;
+
+  background: white;
+}
+
+.cloud::after {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  right: 20px;
+  top: -50px;
+
+  border-radius: 50%;
+
+  background: white;
+}
+
+.cloud1 {
+  top: 90px;
+  left: -80px;
+
+  animation: cloudMove 26s linear infinite;
+}
+
+.cloud2 {
+  right: -100px;
+  top: 180px;
+
+  animation: cloudMoveReverse 32s linear infinite;
+}
+
+.cloud3 {
+  bottom: 150px;
+  left: -120px;
+
+  animation: cloudMove 36s linear infinite;
+}
+
+.cloud4 {
+  bottom: 70px;
+  right: -90px;
+
+  animation: cloudMoveReverse 28s linear infinite;
+}
+
+/* =======================================================
+   FAKE BROWSER
+======================================================= */
+
+.browser {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  margin-top: 28px;
+  margin-bottom: 34px;
+}
+
+.browser-bar {
+  width: min(94%, 430px);
+
+  height: 64px;
+
+  border-radius: 40px;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  border: 4px solid #f7a6c8;
+
+  backdrop-filter: blur(8px);
+
+  display: flex;
+
+  align-items: center;
+
+  padding-inline: 18px;
+
+  gap: 14px;
+
+  box-shadow: 0 8px 25px rgba(255, 150, 190, 0.25);
+}
+
+.favicon {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: #ffe8f2;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  color: #ea5c96;
+
+  font-size: 18px;
+}
+
+.browser-bar span {
+  flex: 1;
+
+  font-size: 1.25rem;
+
+  color: #ea5c96;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  border: none;
+
+  background: transparent;
+
+  font-size: 28px;
+
+  color: #e7649d;
+
+  cursor: pointer;
+}
+
+/* =======================================================
+   MAIN
+======================================================= */
+
+main {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding-bottom: 20px;
+}
+
+/* =======================================================
+   JANELA
+======================================================= */
+
+.window {
+  width: min(94%, 430px);
+
+  background: #fff8fb;
+
+  border: 5px solid #ea6aa3;
+
+  border-radius: 26px;
+
+  overflow: hidden;
+
+  box-shadow: 0 15px 40px rgba(236, 112, 162, 0.25);
+}
+
+/* =======================================================
+   HEADER DA JANELA
+======================================================= */
+
+.window-header {
+  height: 62px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding-inline: 18px;
+
+  border-bottom: 4px solid #f4a8c8;
+
+  background: white;
+}
+
+.window-header span {
+  color: #d95894;
+
+  font-size: 1.2rem;
+
+  font-weight: 700;
+}
+
+.window-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.window-buttons button {
+  width: 34px;
+  height: 34px;
+
+  background: #fff4f8;
+
+  border: 3px solid #f2a0c4;
+
+  border-radius: 8px;
+
+  color: #e36a9e;
+
+  cursor: pointer;
+
+  font-family: inherit;
+}
+
+/* =======================================================
+   CONTEÚDO
+======================================================= */
+
+.window-content {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 28px;
+
+  padding: 34px 22px 34px;
+}
+
+.window-content h1 {
+  text-align: center;
+
+  font-size: 3rem;
+
+  line-height: 1.1;
+
+  color: #e7609a;
+}
+
+/* =======================================================
+   COELHOS
+======================================================= */
+
+.bunny-container {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+.bunny-img {
+  width: 800px;
+
+  max-width: 100%;
+
+  animation: bunnyFloat 2.5s ease-in-out infinite;
+
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.12));
+}
+
+/* =======================================================
+   CAIXA DE MENSAGEM
+======================================================= */
+
+.message {
+  width: 100%;
+
+  padding: 18px;
+
+  background: #fff1f7;
+
+  border: 3px solid #f6a6c9;
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  font-size: 1.15rem;
+
+  line-height: 1.6;
+
+  color: #dd5f97;
+
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* =======================================================
+   BOTÕES
+======================================================= */
+
+.buttons {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  position: relative;
+}
+
+.buttons button {
+  width: 130px;
+
+  height: 56px;
+
+  border: none;
+
+  border-radius: 18px;
+
+  font-family: inherit;
+
+  font-size: 1.3rem;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s,
+    box-shadow 0.18s,
+    background 0.18s;
+}
+
+.buttons button:hover {
+  transform: translateY(-4px);
+}
+
+.buttons button:active {
+  transform: scale(0.95);
+}
+
+.yes {
+  background: #ff7fb8;
+
+  color: white;
+
+  box-shadow: 0 8px 0 #e8639d;
+}
+
+.yes:hover {
+  background: #ff95c4;
+}
+
+.no {
+  background: white;
+
+  color: #e76a9e;
+
+  border: 3px solid #f6a5c8;
+
+  box-shadow: 0 8px 0 #f1c3d8;
+}
+
+/* =======================================================
+   FOOTER
+======================================================= */
+
+footer {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 30px;
+
+  color: #e26c9f;
+}
+
+.mail img {
+  width: 250px;
+
+  height: auto;
+}
+
+footer p {
+  font-size: 1rem;
+}
+
+/* =======================================================
+   POPUP
+======================================================= */
+
+.popup {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(255, 190, 220, 0.55);
+
+  backdrop-filter: blur(6px);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
+.popup-content {
+  width: min(92%, 360px);
+
+  padding: 32px;
+
+  background: #fff8fb;
+
+  border: 5px solid #ea6aa3;
+
+  border-radius: 24px;
+
+  text-align: center;
+
+  animation: popup 0.35s ease;
+}
+
+.popup-content h2 {
+  font-size: 2rem;
+
+  color: #e45e98;
+
+  margin-bottom: 18px;
+}
+
+.popup-content p {
+  color: #dd699a;
+
+  line-height: 1.6;
+
+  margin-bottom: 26px;
+}
+
+.popup-content button {
+  width: 160px;
+
+  height: 52px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  background: #ff82ba;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 1.1rem;
+
+  cursor: pointer;
+}
+
+/* =======================================================
+   CORAÇÕES FLUTUANTES
+======================================================= */
+
+#floating-hearts {
+  position: fixed;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+
+  bottom: -40px;
+
+  color: #ff7eb8;
+
+  animation: heartUp linear forwards;
+}
+
+/* =======================================================
+   ANIMAÇÕES
+======================================================= */
+
+@keyframes bunnyFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes cloudMove {
+  from {
+    transform: translateX(-250px);
+  }
+
+  to {
+    transform: translateX(calc(100vw + 300px));
+  }
+}
+
+@keyframes cloudMoveReverse {
+  from {
+    transform: translateX(250px);
+  }
+
+  to {
+    transform: translateX(calc(-100vw - 300px));
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.65;
+  }
+
+  100% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes heartUp {
+  from {
+    transform: translateY(0) scale(0.5) rotate(0deg);
+
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-110vh) scale(1.4) rotate(360deg);
+
+    opacity: 0;
+  }
+}
+
+/* =======================================================
+   RESPONSIVO
+======================================================= */
+
+@media (max-width: 480px) {
+  .window {
+    width: 95%;
+  }
+
+  .window-content {
+    padding: 24px 18px;
+
+    gap: 22px;
+  }
+
+  .window-content h1 {
+    font-size: 2.3rem;
+  }
+
+  .bunny-container img {
+    width: 220px;
+  }
+
+  .buttons {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .buttons button {
+    width: 100%;
+
+    max-width: 220px;
+  }
+}
