@@ -27,6 +27,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 14px;
+  background: url("./assets/background.png");
 }
 
 /* =======================================================
@@ -146,6 +147,12 @@ body {
 /* =======================================================
    FAKE BROWSER
 ======================================================= */
+
+.background,
+.cloud,
+.stars {
+  display: none;
+}
 
 .browser {
   width: 100%;
