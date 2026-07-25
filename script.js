@@ -48,6 +48,12 @@ noButton.addEventListener("touchstart", (e) => {
   moveButton();
 });
 
+window.addEventListener("orientationchange", () => {
+  noButton.style.left = "";
+  noButton.style.top = "";
+  noButton.style.position = "relative";
+});
+
 // ======================================================
 // BOTÃO SIM
 // ======================================================
